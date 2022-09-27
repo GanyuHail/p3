@@ -1,7 +1,6 @@
 type = "module" 
 
 import * as THREE from 'three';
-
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 let renderer, scene, camera;
@@ -38,8 +37,7 @@ function init() {
     controls.minDistance = 15;
     controls.maxDistance = 250;
 
-    // add sprites
-
+    // sprites
     const sprite1 = new THREE.Sprite(new THREE.SpriteMaterial({ color: '#69f' }));
     sprite1.position.set(6, 5, 5);
     sprite1.scale.set(2, 5, 1);
@@ -67,14 +65,12 @@ function init() {
 
     window.addEventListener('resize', onWindowResize);
     document.addEventListener('pointermove', onPointerMove);
-
 }
 
 function animate() {
 
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
-
 }
 
 function onWindowResize() {
@@ -83,16 +79,13 @@ function onWindowResize() {
     camera.updateProjectionMatrix();
 
     renderer.setSize(window.innerWidth, window.innerHeight);
-
 }
 
 function onPointerMove(event) {
 
     if (selectedObject) {
-
         selectedObject.material.color.set('#69f');
         selectedObject = null;
-
     }
 
     pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -103,20 +96,13 @@ function onPointerMove(event) {
     const intersects = raycaster.intersectObject(group, true);
 
     if (intersects.length > 0) {
-
         const res = intersects.filter(function (res) {
-
             return res && res.object;
-
         })[0];
 
         if (res && res.object) {
-
             selectedObject = res.object;
             selectedObject.material.color.set('#f00');
-
         }
-
     }
-
 }
