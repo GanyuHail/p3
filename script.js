@@ -1,7 +1,7 @@
-type = "module" 
+//type = "module" 
 
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+//import * as THREE from 'three';
+//import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 let renderer, scene, camera;
 let group;
